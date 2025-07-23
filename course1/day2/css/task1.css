@@ -1,0 +1,83 @@
+/* header section */
+#header{
+    text-align: center;
+    background-color:#395b64;
+    padding: 10px;
+    color : white;
+    margin-bottom: 20px;
+}
+/* login form section */
+#linksbar{
+    float : right;
+    border-left : 1px solid black;
+    padding-left: 10px;
+    margin : 0px 20px;
+}
+#loginform input {
+    display: block;
+}
+#loginform input[type=checkbox] {
+    display: block;
+    margin: auto;
+}
+#loginform button{
+    background-color:#2666cf;
+    color: white;
+    padding : 5px 50px ;
+    border-radius : 5px;
+    margin-top: 5px;
+}
+#linksbar ul{
+    list-style: none;
+}
+#linksbar ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color : white;
+    background-color: #395b64;
+    margin: 2px 0px;
+    padding: 5px;
+    text-align: center;
+    width: 100px;
+}
+/* customer list section */
+#customerslist{
+    overflow: hidden;
+}
+#customers{
+    
+    width: 100% ;
+   
+}
+#customerslist #customers th{
+    background-color: #2666cf;
+    color : white;
+    padding: 10px;
+    
+}
+#customerslist #customers td{
+    padding:10px;
+}
+#customerslist #customers tbody tr:nth-child(odd){
+    background-color:#98b7e8;
+    
+}
+#customerslist #customers tbody tr:nth-child(even){
+    background-color: ghostwhite;
+}
+/* content section */
+#aboutus{
+    width: 50%;
+    display: inline-block;
+}
+#titles{
+    display: inline-block;
+    margin-left: 20px;
+}
+#titles p{
+    display: inline-block;
+    width: 100px;
+    position: relative;
+    bottom: 75px;
+    
+}
