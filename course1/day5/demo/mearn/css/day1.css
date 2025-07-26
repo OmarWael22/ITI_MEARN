@@ -1,0 +1,146 @@
+/* p{color: blueviolet; */
+/* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-style: italic;
+font-weight: bold;
+font-size: 28px;
+font-variant: small-caps; */
+/* font: 900  italic 30px 'Franklin Gothic Medium',
+    'Arial Narrow',
+    Arial,
+    sans-serif; */
+
+/* } */
+/* *{
+    background-color: gray;
+}
+p{
+    color: red;
+}
+div>p{
+    color: blue;
+}
+div span{
+    background-color: yellow;
+}
+#p2{
+   background-color: cadetblue; 
+}
+.one{
+    background-color: chartreuse;
+}
+input[type=password]{
+    color: red;
+}
+input[type]{
+
+}
+h1,h3,div,div>p>span{
+    color: red;
+} */
+ /* #p1 div>.two>#id{
+    color: aqua;
+ }
+ .one>p>h{
+    color: chartreuse;
+ }
+  div p {
+      color: blueviolet;
+  }
+  div>p>span{}
+  h1,h5{
+
+  }
+ p{
+    color: blue;
+ }
+ p{
+    color: red;
+ }
+ .one{
+
+ }
+ .two{
+
+ } */
+
+ /* p{
+    color: blue !important;
+ }
+ p{color: brown;} */
+p{
+    /* color: rgba(75, 3, 244, 0.938); */
+    /* color: #f1c5a6; */
+    direction: ltr;
+text-align: start;
+text-decoration: underline red double;
+text-transform: capitalize;
+letter-spacing: 10px;
+word-spacing: 20px;
+line-height: 30px;
+background-color: blue;
+background-image: url('../img/download.png');
+background-repeat: no-repeat;
+/* background-position: 10px 20px; */
+/* background-size: cover; */
+/* background-attachment: local;
+height: 300px;
+overflow: auto; */
+/* width: 75%;
+height: 500px;
+overflow: auto; */
+/* padding: 10px 20px 30px 40px; */
+padding-top: 20px;
+/* margin: 10px 20px 30px 40px; */
+margin-top: 30px;
+border: 10px red solid;
+border-style: dotted;
+border-color: green;
+border-top: 2px gray dashed;
+border-radius: 50px;
+
+}
+li{
+    display: inline-block;
+    background-color: cadetblue;
+    border: 1px red solid;
+    margin: 10px;
+    width: 100px;
+}
+h1{
+    /* display: none; */
+    /* visibility: hidden; */
+}
+/* 
+#p2{
+    background-color: cadetblue;
+} */
+ #div1{
+    width: 300px;
+    height: 300px;
+    background-color: blueviolet;
+    top:20px;
+    position: relative;
+ }
+ #div1>div{
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+    top:10px;
+    position: sticky;
+ }
+ input[type=text]{
+    width: 90%;
+    margin: 10px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    background-color: bisque;
+    background-image: url('../img/emai.png');
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    height: 30px;
+    background-position: 1px 4px;
+ }
+ input[type=text]:hover{
+    border: 2px darkcyan dashed;
+    
+ }
