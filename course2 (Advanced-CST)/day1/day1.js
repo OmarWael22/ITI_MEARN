@@ -1,111 +1,115 @@
-// js is interpreted language - lossly typed - dynamic typed - single thread
-// minifing --> remove white spaces and commnets
-// http is stateless protocol so we use cookies to maintain state
-// hoisting search for var variable and function statment only
+// // js is interpreted language - lossly typed - dynamic typed - single thread
+// // minifing --> remove white spaces and commnets
+// // http is stateless protocol so we use cookies to maintain state
+// // hoisting search for var variable and function statment only
 
-// js engine --> callstack(heap) , web api , callback queue , event loop 
-// in js engine the priority in callstack is for sync code then async code from callback queue
+// // js engine --> callstack(heap) , web api , callback queue , event loop 
+// // in js engine the priority in callstack is for sync code then async code from callback queue
 
-console.log("Start");  // 1
-console.log("1");  // 2
-function fun(){
-  console.log("function exec start");  // 6
-  console.log("2");   // 7
-  setTimeout(function(){
-    console.log("3"); // 9
-  },1000) 
-  console.log("function exec end"); //
-}   // wait to be called
-console.log("4"); // 3
-
-setTimeout(function(){ // go to web api
-  console.log("5");  //
-  
-},2000)  
-setTimeout(function(){
-  console.log("6"); //   8
-},0)
-console.log("7"); // 4
-console.log("done");  // 5
-fun()
-
-// BOM 
-// this take its value from the function caller --> default this value is window
-// every function has its own this value
-
-// two ways to create obj
-// 1. object literal
-var str = "ere";
-// 2. new constrcutor
-var str2 = new String("err");
-
-
-/************************************************************ */
 // console.log("Start");  // 1
 // console.log("1");  // 2
 // function fun(){
-//   console.log("function exec start");  // 6 
+//   console.log("function exec start");  // 6
 //   console.log("2");   // 7
 //   setTimeout(function(){
-//     console.log("3"); // 10  11
+//     console.log("3"); // 9
 //   },1000) 
-//   console.log("function exec end"); // 8
-// }
+//   console.log("function exec end"); //
+// }   // wait to be called
 // console.log("4"); // 3
 
-// setTimeout(function(){
-//   console.log("5");  // 11 10
+// setTimeout(function(){ // go to web api
+//   console.log("5");  //
   
-// },2000)
+// },2000)  
 // setTimeout(function(){
-//   console.log("6"); //9
+//   console.log("6"); //   8
 // },0)
 // console.log("7"); // 4
 // console.log("done");  // 5
 // fun()
-// -----------------------------------------------------
+
+// // BOM 
+// // this take its value from the function caller --> default this value is window
+// // every function has its own this value
+
+// // two ways to create obj
+// // 1. object literal
+// var str = "ere";
+// // 2. new constrcutor
+// var str2 = new String("err");
+
+// var obj = {
+//   propName: "ahmed",
+//   propAdd: "123"
+// };
+// console.log(Object.entries(obj));
+// /************************************************************ */
+// // console.log("Start");  // 1
+// // console.log("1");  // 2
+// // function fun(){
+// //   console.log("function exec start");  // 6 
+// //   console.log("2");   // 7
+// //   setTimeout(function(){
+// //     console.log("3"); // 10  11
+// //   },1000) 
+// //   console.log("function exec end"); // 8
+// // }
+// // console.log("4"); // 3
+
+// // setTimeout(function(){
+// //   console.log("5");  // 11 10
+  
+// // },2000)
+// // setTimeout(function(){
+// //   console.log("6"); //9
+// // },0)
+// // console.log("7"); // 4
+// // console.log("done");  // 5
+// // fun()
+// // -----------------------------------------------------
 
 
-/**4 main catigories of obj
- *  - built-in object
- *  - custom object
- *  - BOM
- *  - DOM
- */
+// /**4 main catigories of obj
+//  *  - built-in object
+//  *  - custom object
+//  *  - BOM
+//  *  - DOM
+//  */
 
-var obj = {
-  propName: 'Ahmed',
-  propAdd: '123str',
-  std: true
-}
+// var obj = {
+//   propName: 'Ahmed',
+//   propAdd: '123str',
+//   std: true
+// }
 
-console.log(obj);
+// console.log(obj);
 
-obj.age = 50;
-console.log(obj)
-console.log(obj.propName)
+// obj.age = 50;
+// console.log(obj)
+// console.log(obj.propName)
 
-delete(obj.std)
-console.log(obj)
-delete obj.propAdd
-console.log(obj)
+// delete(obj.std)
+// console.log(obj)
+// delete obj.propAdd
+// console.log(obj)
 
-// Dot Notaion == obj.
-// Subscript Notation obj['property name']
+// // Dot Notaion == obj.
+// // Subscript Notation obj['property name']
 
-// console.log(obj['propName']);
-var x = 'propName';
-console.log(obj[x])
+// // console.log(obj['propName']);
+// var x = 'propName';
+// console.log(obj[x])
 
-if(obj.test){
-  console.log('foundend')
-}else {
-  console.log('notFounded')
-}
+// if(obj.test){
+//   console.log('foundend')
+// }else {
+//   console.log('notFounded')
+// }
 
 console.log('='.repeat(20))
 
-// var userName = 'Aya'
+// // var userName = 'Aya'
 var obj2 = {
   userName:'Omar',
   userAge: 25,
@@ -115,7 +119,7 @@ var obj2 = {
   }
 }
 
-console.log(obj2.display())
+// console.log(obj2.display())
 
 
 // function myFun(){
@@ -136,37 +140,39 @@ console.log(obj2.display())
  *    - letral creation
  */
 
-// var str = 'this is a string'
-// var str2 = new String('hello string from new constructor')
+var str = 'this is a string'
+var str2 = new String('hello string from new constructor')
 
 // console.log(str)
 // console.log(str.length)
 // console.log(str2)
 // console.log(str2.length)
 // console.log("/*".repeat(25))
-// var myObj = new Object();
+var myObj = new Object();
 
-// myObj.name = 'Ibrhaim';
-// myObj.age = 66;
+myObj.name = 'Ibrhaim';
+myObj.age = 66;
 
 // console.log(myObj)
 // console.log(obj2)
 
 var arr = [9, 6, 5, 'hello', true]
 
-console.log(arr.length) // 5
-console.log(obj2.length) // undefined
+// console.log(arr.length) // 5
+// console.log(obj2.length) // undefined
 
 // for-in
 // for-of
-
+// for (const key of arr) {
+//   console.log(key);
+// }
 // for(var elem in obj2){
 //   console.log(obj2[elem])
 // }
 
 console.log("****************************************")
 
-// var newObj = obj2
+var newObj = obj2
 
 // console.log(newObj)
 // console.log(obj2)
@@ -179,34 +185,34 @@ console.log("****************************************")
 
 //*************************************** */
 
-// var obj3 = {
-//   name: 'ahmed',
-//   age: 22,
-//   skills: {
-//     skill1: 'Hmtl',
-//     skill2: 'css',
-//     skill3: 'js'
-//   }
-// }
-// // var newObj = {}
+var obj3 = {
+  name: 'ahmed',
+  age: 22,
+  skills: {
+    skill1: 'Hmtl',
+    skill2: 'css',
+    skill3: 'js'
+  }
+}
+var newObj = {}
 
-// for(var elm in obj3){
-  //   newObj[elm] = obj3[elm]
-  // }
+for(var elm in obj3){
+    newObj[elm] = obj3[elm]
+  }
   
   // console.log(newObj)
   // console.log(obj3)
   
-  // newObj.test = 'testProp'
+  newObj.test = 'testProp'
   
   // console.log(newObj)
   // console.log(obj3)
   
   // console.log(newObj.skills)
-  // newObj.skills.skill2 = 'node.js'
+  newObj.skills.skill2 = 'node.js'
   
   // console.log(newObj)
-
+  // console.log(obj3);
 
   // ***************************------------
 
@@ -219,22 +225,25 @@ console.log("****************************************")
       skill2: 'css',
       skill3: 'js'
     }
-  }
+}
+/* deep copy */
   // var newObj = JSON.parse(JSON.stringify(obj3))
-  var newObj = structuredClone(obj3)
-  console.log(newObj)
-  console.log(obj3)
+var newObj = structuredClone(obj3)
+/* shallow copy */
+  // var newObj = Object.assign({}, obj3)
+  // console.log(newObj)
+  // console.log(obj3)
 
-  newObj.skills.skill2 = 'node.js'
+  // newObj.skills.skill2 = 'node.js'
   
-  console.log(newObj)
-  console.log(obj3)
+  // console.log(newObj)
+  // console.log(obj3)
 
   /** Regular function [Fucntion statment]
    *    - hoisting
    */
 
-  add(5, 6)
+  // add(5, 6)
   function add(x,y) {
     console.log(x + y)
   }
@@ -243,21 +252,22 @@ console.log("****************************************")
   /** function expression ==> [anonymous function assigned to a variable]
    *    - not hoisited
    */
+// add2(2,3);
+var add2 = function(x,y){
+  console.log(x+y) // 5
 
-// var add2 = function(x,y){
-//   console.log(x+y) // 5
+  console.log(add2.caller) // null
+  console.log(this) // window
+}
 
-//   console.log(add2.caller) // null
-//   // console.log(this) // window
-// }
 
 // add2(2, 3)
 
-// function newFun(){
-//   console.log('newFun');
+function newFun(){
+  console.log('newFun');
 
-//   add2(1,2)
-// }
+  add2(1,2)
+}
 
 // newFun()
 
@@ -284,8 +294,8 @@ console.log("****************************************")
 // console.log(z)
 
 
-// var arr5 = [6, 8, 12, 3, 'hello']
-// var str6 = 'hello from advjs day 1'
+var arr5 = [6, 8, 12, 3, 'hello']
+var str6 = 'hello from advjs day 1'
 
 /** Borrowing in js
  *    - call
@@ -294,16 +304,17 @@ console.log("****************************************")
  */
 
 
-// console.log([].join.call(str6, ''))
+console.log([].join.call(str6, '='))
 // console.log([].join.call(str6, ' '))
 // console.log([].join.call(str6, '='))
 
 
-// // console.log([].join.apply(str6, ['=']))
+console.log([].join.apply(str6, ['=']))
 
 
 
-// // var res = [].join.bind(str6, ['='])
+var res = [].join.bind(str6, ['='])
+console.log(res);
 // var res = [].join.bind(str6)
 // console.log(res('//'))
 
