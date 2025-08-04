@@ -1,6 +1,6 @@
 lnkdLstObj = {
     data: [],
-    enqueue: function (newData) {
+    push: function (newData) {
         var length = this.data.length;
         if ( length == 0)
             return this.data.push({ val: newData });
@@ -9,6 +9,16 @@ lnkdLstObj = {
             throw new Error("the value must be greater than the last value");
         else
             return this.data.push({ val: newData });
+    },
+    enqueue: function (newData) {
+        var length = this.data.length;
+        if ( length == 0)
+            return this.data.push({ val: newData });
+        var firstVal = this.data[0].val;
+        if (newData >= firstVal)
+            throw new Error("the value must be smaller than the first value");
+        else
+            return this.data.unshift({ val: newData });
     },
     dequeue: function () {
         if (this.data.length == 0)
@@ -23,11 +33,11 @@ lnkdLstObj = {
         // insert at head
         if (idx == 0) {
             if (length == 0)
-                return this.data.unshift({ val: newData });
+                return this.enqueue(newData);
             else {
                 var firstElm = this.data[idx].val
                 if (newData < firstElm)
-                    return this.data.unshift(newData);
+                    return this.enqueue(newData);
                 else
                     throw new Error("The value must be smaller than the first element");
             }
@@ -36,7 +46,7 @@ lnkdLstObj = {
         if (idx == length) {
             var tail = this.data[idx-1].val;
             if (newData > tail)
-                return this.enqueue(newData);
+                return this.push(newData);
             else
                 throw new Error("The value must be greater than the last element");
         }
@@ -53,9 +63,13 @@ lnkdLstObj = {
         return this.data.pop().val;
     },
     remove : function (dataValue) {
-        this.data = this.data.filter(function (obj) {
+        var found = this.data.find( (obj) => obj.val == dataValue);
+        if (!found)
+            throw new Error("the value is not found in the list");
+        else
+            this.data = this.data.filter(function (obj) {
             return obj.val != dataValue;
-        });    
+            });    
         
     },
     display: function () { 
@@ -67,14 +81,14 @@ lnkdLstObj = {
     }
 
 };
-// lnkdLstObj.enqueue(1);
-// lnkdLstObj.enqueue(0);
-lnkdLstObj.insert(6,0)
-lnkdLstObj.insert(4, 0)
-lnkdLstObj.insert(7,2);
-lnkdLstObj.enqueue(9)
+lnkdLstObj.push(1);
+lnkdLstObj.push(3);
+// lnkdLstObj.insert(2,1)
+// lnkdLstObj.insert(4, 0)
+// lnkdLstObj.insert(7,2);
+lnkdLstObj.enqueue(0)
 // lnkdLstObj.pop()
-// lnkdLstObj.remove(6)
-lnkdLstObj.remove(4);
+lnkdLstObj.remove(1)
+lnkdLstObj.remove(3);
 lnkdLstObj.display()
 console.log(lnkdLstObj);
