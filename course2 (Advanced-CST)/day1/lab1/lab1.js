@@ -82,13 +82,19 @@ lnkdLstObj = {
 
 };
 lnkdLstObj.push(1);
-lnkdLstObj.push(3);
-// lnkdLstObj.insert(2,1)
+lnkdLstObj.push(5);
+lnkdLstObj.insert(2,1)
 // lnkdLstObj.insert(4, 0)
-// lnkdLstObj.insert(7,2);
-lnkdLstObj.enqueue(0)
+// lnkdLstObj.insert(7,3);
+lnkdLstObj.enqueue(-5)
 // lnkdLstObj.pop()
-lnkdLstObj.remove(1)
-lnkdLstObj.remove(3);
+// lnkdLstObj.remove(1)
+// lnkdLstObj.remove(3);
+lnkdLstObj.insert(4,3);
+lnkdLstObj.push(7);
+// lnkdLstObj.push(6);
+lnkdLstObj.enqueue(-6)
+lnkdLstObj.pop();
+lnkdLstObj.dequeue()
 lnkdLstObj.display()
 console.log(lnkdLstObj);
