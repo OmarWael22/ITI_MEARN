@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+    <style>
+        .one {
+            background-color: gray;
+            color: wheat;
+        }
+
+        .two {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt delectus porro adipisci cum
+        necessitatibus
+        eius, suscipit, ipsa tempore accusamus cumque similique omnis provident aperiam quas? Facere nesciunt quae
+        voluptas assumenda.</div>
+    <div class="one" id="div2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro ea repellendus ut
+        <input type="text" id="txt1" readonly>
+        <input type="text">
+        <input type="text"> <input type="text">
+        possimus nam a
+        eligendi
+        quaerat repudiandae, delectus omnis nostrum dolor, laborum similique voluptatem, eveniet est veritatis cum ipsa!
+    </div>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // $document.ready(function(){
+
+        // })
+        // $(function(){
+
+        // })
+        $('#div1').html("<p>new text from js </p>")
+        console.log($('#div1').html())
+        $("#div2").attr("class", "two")
+        $("input").attr("value", "admin")
+        $('#div2').attr("user-roll", 'admin')
+        // $("#div2").text("<p> new text from js </p>")
+        console.log($("#div2").text())
+        $("input").val("user")
+        // $('#div2').html($('#div1').html())
+        $('#div2').hasClass("two")
+        $("#txt1").is("readonly")
+
+
+        // $("ul").on("click", function (event) {
+        //     var target = $(event.target);
+        //     if (target.is("li")) {
+        //         // target.css("background-color", "red");
+        //         console.log("true")
+        //     }
+        // });
+        // $("li").each(function (i, ele) {
+        //     console.log(ele)
+        //     $(ele).text($(this).text() + i)
+        // })
+        var colorArr = ['orange', 'red', 'blue', 'green'];
+        $("p").each(function (i, ele) {
+            $(ele).css("background", colorArr[i])
+        })
+
+    </script>
+</body>
+
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script> -->
+
+
+</html>
