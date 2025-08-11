@@ -1,0 +1,70 @@
+.task1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.task1 ul{
+    list-style: none;
+    padding: 0px;
+    background-color: gray;
+    border-radius: 5px;
+    font-size: 0px;
+
+}
+.task1 ul li{
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin: 0px;
+    transition: background-color 0.3s ease;
+    
+}
+.task1 ul li i {
+    font-size: 30px;;
+}
+.task1 ul li:hover {
+    background-color: green;
+    cursor: pointer;
+}
+/*****************************************/
+
+.task2 p {
+    font-family: "Mozilla Headline", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+
+}
+/*************************/
+.task3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.task3 div{
+    display: flex;
+    background-color: gainsboro;
+    width: 180px;
+    height: 25px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 0px;
+    border-radius: 25px;
+}
+.task3 .user{
+    background-color: rgb(43, 201, 43);
+    color: rgb(8, 8, 8);
+    font-size: 30px;
+    border-radius: 50%;
+    height: 35px;
+    padding: 5px;
+
+}
+.task3 div p{
+    margin : 0px;
+}
+.task3 .x-mark{
+    color: gray;
+    font-size: smaller;
+}
