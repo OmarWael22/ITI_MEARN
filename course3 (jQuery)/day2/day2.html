@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            background-color: rgba(210, 105, 30, 0.33);
+            border: 2px dotted red;
+        }
+
+        div {
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid salmon;
+        }
+
+        #p3 {
+            background-color: chartreuse;
+            width: 150px;
+            position: relative;
+            border: 2px solid sandybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <p>p1</p>
+    <div style="">div1
+        <a href="https://google.com">link1</a>
+        <p>p2
+            <a href="#">link2</a>
+        </p>
+    </div>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <input type="button" value="click" id="btn">
+    <p id="p3" class="two">p3</p>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        var div = $("div");
+        //div.parent().addClass("one")
+        // div.children().addClass("one");
+        // div.next().addClass("one")
+        //div.prev().addClass("one")
+        // div.nextAll().addClass("one");
+        // div.find("a").addClass("one")
+        // $("p").filter(".two").addClass("one")
+        // div.addClass('one');
+        // div.removeClass("one")
+        // div.toggleClass("one")
+        // div.toggleClass("one")
+        // div.width("50%")
+        // console.log(div.width())
+        // console.log(div.innerWidth())
+        // console.log(div.outerWidth())
+        // console.log(div.outerWidth(true))
+        div.append("<p>p4</p>");
+        div.prepend("<p>p5</p>");
+        // $("#p3").appendTo(div);
+        div.after("<p>p6</p>")
+        div.before("<p>p7</p>");
+        //div.empty()
+        // div.remove();
+        //div.replaceWith("<p>new p8</p>")
+        // $("li").first().addClass("one");
+        // $("li").last().addClass("one");
+        // $("li").eq(1).addClass("one");
+        // $("p").not(".two").addClass("one")
+        // div.click(function () {
+        //     //   $(this).addClass("one")
+        // })
+        // div.hover(function () {
+        //     $(this).addClass("one")
+        // }, function () {
+        //     $(this).removeClass("one")
+        // })
+        // div.on("click", function () {
+        //     $(this).addClass("one")
+        // })
+        // div.on({
+        //     "click": function () {
+        //         $(this).addClass("one")
+        //     }, "dblclick": function () {
+        //         $(this).removeClass("one")
+        //     }
+        // })
+        // div.on("click", { userid: 500 }, function (e) {
+        //     console.log(e)
+        //     div.append(`<p> user ID: ${e.data.userid}</p>`)
+        // })
+        // $("a").click(function (e) {
+        //     e.preventDefault();
+        //     alert("error")
+        // })
+        //  div.load("http://127.0.0.1:5500/day1.html#div2")
+        // $.ajax({
+        //     url: "https://jsonplaceholder.typicode.com/users",
+        //     success: function (data) {
+        //         console.log(data);
+        //         data.forEach(function (user) {
+        //             console.log(user.username)
+        //             $($("<p></p>").text(user.username)).appendTo(div)
+        //         });
+        //     },
+        //     error: function (e) {
+        //         console.error(e)
+        //     }
+        // })
+        // div.hide(5000, function () {
+        //     alert("end")
+        // });
+        // div.show(1000)
+        // div.hide()
+        // div.fadeIn(5000)
+        // div.fadeOut(5000)
+        // div.fadeToggle(5000)
+        // $("#btn").click(function () {
+        //     // div.fadeToggle(5000);
+        //     // div.slideUp(3000)
+        //     div.slideToggle(3000)
+        // })
+        // $("#p3").animate({
+        //     left: "100px",
+        //     opacity: 0.5,
+        //     width: "+=100px"
+        // }, 5000)
+        $("#p3").click(function () {
+            $(this).clone(true).insertAfter(this)
+        })
+    </script>
+</body>
+
+</html>
