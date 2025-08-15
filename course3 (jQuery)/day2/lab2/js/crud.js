@@ -40,7 +40,7 @@ searachBtn.on("click", function () {
     if (searchVal == "")
         resData = tableData
     else
-        resData = tableData.filter(ele => ele.name == searchVal || ele.age == searchVal);
+        resData = tableData.filter(ele => ele.name.includes(searchVal) || ele.age == searchVal);
     displayTable(resData);
 
 });
