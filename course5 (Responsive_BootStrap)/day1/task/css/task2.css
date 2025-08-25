@@ -1,0 +1,15 @@
+.parent{
+    border: 1px solid black;
+    width: 75vw;
+    height: 50vw;
+    margin: auto;
+}
+.child{
+    border : 1px solid orange;
+    width: 25%;
+    height: 25%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
