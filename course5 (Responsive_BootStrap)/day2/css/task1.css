@@ -1,0 +1,72 @@
+
+header , footer{
+    background-color: #5070b5;
+    /* width: 100vw; */
+    text-align: center;
+    color: white;
+    /* padding: 15px; */
+    font-size: 25px;
+    /* margin: 5px; */
+    
+}
+header{
+    grid-area: header;
+}
+footer{
+    grid-area: footer;
+}
+main{
+    color : white;
+    text-align: center;
+    font-size: 20px;
+    display: grid;
+      /* auto-fit lets grid items wrap automatically */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-areas: 
+    "header header header header header"
+    "sidenav section section section sidebar"
+    "sidenav section section section sidebar"
+    "sidenav section section section sidebar"
+    "sidenav section section section sidebar"
+    "footer footer footer footer footer";
+    gap: 1rem;
+    min-height: 50vh;
+}
+aside:first-of-type{
+    grid-area: sidenav;
+}
+aside:last-of-type{
+    grid-area: sidebar;
+}
+section{
+    background-color:#81a43c;
+    grid-area: section;
+    /* margin:5px; */
+}
+aside{
+    background-color:#b95f21;
+}
+@media(max-width:767px){
+    main{
+        grid-template-areas: 
+    "header header header header header"
+    "sidenav sidenav sidenav sidenav sidenav"
+    "section section section section section"
+    "section section section section section"
+    "section section section section section"
+    "sidebar sidebar sidebar sidebar sidebar"
+    "footer footer footer footer footer";
+    }
+}
+@media(min-width: 768px) and (max-width: 1024px){
+    main{
+        grid-template-areas: 
+    "header header header header header"
+    "sidenav sidenav sidenav sidenav sidenav"
+    "section section section section sidebar"
+    "section section section section sidebar"
+    "section section section section sidebar"
+    "footer footer footer footer footer";
+    }
+
+}

@@ -20,7 +20,7 @@ aside{
     /* flex-grow: 1;
     flex-shrink: 2;
     min-width: 200px; */
-    flex: 1 2 200px;
+    flex: 1 0 200px;
     margin: 5px;
 }
 section{
