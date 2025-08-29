@@ -1,0 +1,6 @@
+/* nav bar */
+@media (min-width : 768px){
+    .nav-item:not(:last-of-type){
+        border-right: 1px #bfbfbf solid;
+    }
+}
