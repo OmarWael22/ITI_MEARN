@@ -1,4 +1,4 @@
-use ITI
+use(ITI)
 
 let instructorsArray = [
   {
