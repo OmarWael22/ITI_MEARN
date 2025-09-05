@@ -1,4 +1,4 @@
-use ITI
+use("school")
 
 let instructorsArray = [
   {
@@ -174,5 +174,5 @@ db.instructor.find({},{courses : { $slice : 2} })
 //he $each modifier is available for use with the $addToSet operator and the $push operator.
 db.instructor.updateOne({id : 1 }, {$push : {courses : { $each : ["html" ,"css" ,"js"]}}})
 /* position */
-db.instructor.updateOne({id : 1 }, {$push : {courses : { $each: ["htmlf" ,"cssf" ,"jswd"] , $slice : -2 }}})
+db.instructor.updateOne({id : 1 }, {$push : {courses : { $each: ["htmlf" ,"cssf" ,"jswd"] , $postion : -2 }}})
 db.instructor.find({})
