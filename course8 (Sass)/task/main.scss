@@ -1,0 +1,79 @@
+@import "variables";
+.main {
+  &-title {
+    color: $primaryColor;
+  }
+  &-subtitle {
+    color: $secondryColor;
+  }
+  &-btn {
+    color: $primaryColor;
+    &:hover {
+      color: $secondryColor;
+    }
+  }
+}
+$fontList: 18px, 16px, 14px;
+@each $font in $fontList {
+  .font-#{$font} {
+    font-size: $font;
+  }
+}
+.finish-btn {
+  width: 100%;
+  @media (min-width: 762px) {
+    width: 50%;
+  }
+}
+
+// @mixin gridSystem(){
+//     @for $i from 1 through 12{
+//         .col{
+//             &-#{$i}{
+
+//                 width: calc( (100% / 12) * $i );
+//             }
+//             &-md-#{$i}{
+//                 @media(min-width : 768px){
+//                     width: calc( (100% / 12) * $i );
+//                 }
+//             }
+//             &-lg-#{$i}{
+//                 @media(min-width : 992px){
+//                     width: calc( (100% / 12) * $i );
+//                 }
+//             }
+//         }
+//     }
+// }
+$screen-list: (
+  def: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+@mixin gridSystem() {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: calc((100% / 12) * $i);
+    }
+  }
+  @each $screenName, $ScreenSize in $screen-list {
+    // @if $screenName == def{
+
+    // }
+    // @else if $screenName !=def {
+    @media (min-width: $ScreenSize) {
+      @for $i from 1 through 12 {
+        .col-#{$screenName}-#{$i} {
+          width: calc((100% / 12) * $i);
+        }
+      }
+    }
+
+    // }
+  }
+}
+
+@include gridSystem();
