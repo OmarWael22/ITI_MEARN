@@ -1,0 +1,1 @@
+[{"operation":"add","operands":[1,5],"result":6},{"operation":"sub","values":[6,3,4],"result":-1},{"finalResult":-1}]
