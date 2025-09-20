@@ -1,3 +1,5 @@
+// module.exports = { calc: new Calc() };
+// all module will get the same instance as the module.export run once and cache the result of the require
 const http = require("node:http")
 const fs = require("node:fs")
 const portNumber = 7000;
@@ -14,6 +16,11 @@ const server = http.createServer((req , res)=>{
             let htmlPage = fs.readFileSync("../client/index.html")
                 res.setHeader("content-type","text/html")
                 res.write(htmlPage);
+                break;
+            case "/css/main.css":
+                let cssFile = fs.readFileSync("../client/css/main.css");
+                res.setHeader("content-type","text/css")
+                res.write(cssFile);
                 break;
             case "/js/main.js":
                 let jsFile = fs.readFileSync("../client/js/main.js");

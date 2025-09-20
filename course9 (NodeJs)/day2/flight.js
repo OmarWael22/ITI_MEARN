@@ -44,6 +44,8 @@ class FlightTicketsRes {
 }
 let user1 = new FlightTicketsRes(10,20,"cairo","alex")
 let user2 = new FlightTicketsRes(50,20,"cairo","alex")
-let user3 = new FlightTicketsRes(578,544,"aswan","alex")
+let user3 = new FlightTicketsRes(578, 544, "aswan", "alex")
+user2.seatNum = 1400;
+console.log(user3.flightNum);
 user1.displayInfo()
 FlightTicketsRes.displayAllInfo()
