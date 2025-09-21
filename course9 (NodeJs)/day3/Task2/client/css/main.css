@@ -53,4 +53,14 @@ li , .user{
 button{
     width: 200px;
     margin-bottom: 20px;
+    display: inline-block;
+    
+}
+div button{
+    transform: translateX(-100%);
+    margin: 10px;
+
+}
+.allusers div{
+    margin-top: 10px;
 }

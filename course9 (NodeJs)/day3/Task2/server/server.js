@@ -1,6 +1,6 @@
 // module.exports = { calc: new Calc() };
 // all module will get the same instance as the module.export run once and cache the result of the require
-const http = require("node:http")
+
 const fs = require("node:fs")
 const path = require("path")
 const portNumber = 7000;
@@ -11,8 +11,10 @@ const app = express()
 app.listen(portNumber,()=>{
     console.log("Listening on port 7000");
 })
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+
 app.get(["/","/main.html"],(req,res)=>{
     let relative = "../client/index.html"
     let absolute = path.join(__dirname,relative)
@@ -37,30 +39,31 @@ app.get("/users",(req,res)=>{
     console.log(absolute);
     res.sendFile(absolute)
 })
-let id = 0
 app.post("/welcome.html",(req,res)=>{
     let {username,mobile,email,address} = req.body;
     // console.log(req.body);
     htmlPage = fs.readFileSync("../client/welcome.html","utf-8");
-    updateJsonFile({id,username,mobile,email,address})
+    updateJsonFile({username,mobile,email,address})
     htmlPage = htmlPage.replace("{username}",username );
     htmlPage = htmlPage.replace("{mobilenumber}",mobile );
     htmlPage = htmlPage.replace("{address}", address);
     htmlPage = htmlPage.replace("{email}", email);
-    id++;
     res.send(htmlPage);
 })
-
+app.delete("/users/delete/:id", (req, res) => {
+    let id = req.params.id
+    deleteJsonObj(id);
+    res.end();
+})
+app.put("/users/update/:id", (req, res) => {
+    let newuserObj = req.body;
+    updateJsonObj(newuserObj);
+    res.end();
+})
 app.all("*not",(req ,res)=>{
     res.send("<h3>Not Found !</h3>")
 })
-// const server = http.createServer((req , res)=>{
-//     // handling get req
-//     if(req.method === "GET"){
-//        
-//     // handling post req
-//     else if(req.method === "POST"){
-//       
+
 
 function updateJsonFile(obj){
     if(fs.existsSync("users.json")){
@@ -78,5 +81,38 @@ function updateJsonFile(obj){
         fs.writeFile("users.json",JSON.stringify([obj]),(err)=>{
             if(err) throw err;
         })
+    }
+}
+function deleteJsonObj(deleteId) {
+    if (fs.existsSync("users.json")) {
+    fs.readFile("users.json", "utf-8", (err, data) => {
+        users = JSON.parse(data);
+        users = users.filter((user) => {
+            return user.id != deleteId;
+        })
+        // users.push(obj);
+        fs.writeFile("users.json", JSON.stringify(users), (err) => {
+        if (err) throw err;
+        });
+    });
+    }
+}
+function updateJsonObj(newuserObj) {
+    if (fs.existsSync("users.json")) {
+        fs.readFile("users.json", "utf-8", (err, data) => {
+        users = JSON.parse(data);
+            users = users.map((user) => {
+            console.log(user);
+            if (user.id == newuserObj.id) {
+                return newuserObj
+                }
+                return user
+            
+        });
+        // users.push(obj);
+        fs.writeFile("users.json", JSON.stringify(users), (err) => {
+            if (err) throw err;
+        });
+        });
     }
 }
