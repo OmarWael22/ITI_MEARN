@@ -4,7 +4,10 @@ const Student = require("../models/students");
 const router = express.Router();
 // get  api/students
 router.get("/", async (req, res) => {
-    const students = await Student.find({});
+    const students = await Student.find({})
+        .populate("courses", "title -_id")
+        .populate("depId", "name -_id");
+
     res.json({ msg: "success", students });
 });
 // get api/students/1
@@ -22,6 +25,7 @@ router.get("/:id", async (req, res) => {
 
 // post api/student
 // body student obj
+// TODO: start from here
 router.post("/", async (req, res) => {
     let data = req.body
     let newStudent = new Student(data);
