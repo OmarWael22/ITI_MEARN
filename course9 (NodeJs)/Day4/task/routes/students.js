@@ -7,5 +7,7 @@ router.get("/", async(req,res)=>{
     const students = await Student.find({})
     res.json({msg:"sucess", students})
 })
+// get api/students/1
+// router.get("/:id")
 
 module.exports = router
