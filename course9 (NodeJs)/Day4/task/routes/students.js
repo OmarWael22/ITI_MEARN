@@ -1,5 +1,7 @@
 const express = require("express");
 const Student = require("../models/students");
+const Course = require("../models/courses");
+const Department = require("../models/department")
 
 const router = express.Router();
 // get  api/students
@@ -8,6 +10,10 @@ router.get("/", async (req, res) => {
         .populate("courses", "title -_id")
         .populate("depId", "name -_id");
 
+    res.json({ msg: "success", students });
+});
+router.get("/row", async (req, res) => {
+    const students = await Student.find({})
     res.json({ msg: "success", students });
 });
 // get api/students/1
@@ -28,9 +34,16 @@ router.get("/:id", async (req, res) => {
 // TODO: start from here
 router.post("/", async (req, res) => {
     let data = req.body
+    console.log(data);
+    let targetCourses = await Course.find({ id : { $in : data.courses}})
+    let targetDep = await Department.findOne({id: data.depId})
+    // replace id with _id for each course and dep
+    data.courses = targetCourses.map((c)=> c._id)
+    data.depId = targetDep._id;
     let newStudent = new Student(data);
     await newStudent.save()
     res.json({msg:"success" , data})
+    
 })
 
 router.delete("/:id", async (req, res) => {
