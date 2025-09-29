@@ -1,3 +1,43 @@
-body{
-    background-color: rgb(204, 204, 209);
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    }
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background: #0078d7;
+    border-radius: 5px;
+    transition:  0.3s;
+}
+
+a:hover {
+    background: #005a9e;
+}
+
+#installButton {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition:  0.3s;
+}
+
+#installButton:hover {
+    background: #1e7e34;
 }

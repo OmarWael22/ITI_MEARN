@@ -1,13 +1,13 @@
 const cachedFiles = [
   "pages/index.html",
   "pages/page1.html",
-  "pages/offline.html",
-  "pages/wrong.html",
+  "pages/off.html",
+  "pages/notFound.html",
   "css/main.css",
   "js/main.js",
 ];
 
-const cacheDB = "Files-2";
+const cacheDB = "Files";
 // add files to cache
 self.addEventListener("install", (e) => {
   console.log("service worker installing....", e);
@@ -16,48 +16,64 @@ self.addEventListener("install", (e) => {
       .open(cacheDB)
       .then((db) => {
         console.log("Files added to cache successfully");
-        return db.addAll(cachedFiles);
+        return db.addAll(filesToCache);
       })
-      .catch((error) => {
-        console.log("Error", error);
+      .catch((err) => {
+        console.log("Error during caching:", error);
       })
   );
 });
 
-// self.addEventListener('activate',event=>{
-//     console.log('service worker activating....')
-// })
+self.addEventListener('activate',event=>{
+    console.log('service worker activating....')
+})
 
-// handle fetching event
+// Fetch event - serve from cache or network
 self.addEventListener("fetch", (e) => {
   console.log("Fetching request ===> ", e.request.url);
   e.respondWith(
     caches
       .match(e.request)
       .then(async (res) => {
-        // if response found in cache return it
+        // If response found in cache, return it
         if (res) {
           console.log("Request Found in cache!", e.request.url);
           return res;
         }
-        // if not found in cache request it from network
+        
+        // If not found in cache, request it from network
+        console.log("Network request ", e.request.url);
         try {
-          console.log("Network request ", e.request.url);
-          let fetchedData = await fetch(e.request);
-          if (!fetchedData.ok) {
-            console.log("your are offline");
-            const cachedOffline = await caches.match("/pages/offline.html");
-            return cachedOffline;
+          const response = await fetch(e.request);
+          console.log(response);
+          
+          // Handle error responses
+          if (!response.ok) {
+            if (response.status === 404) {
+              return caches.match("pages/notFound.html");
+            } else {
+              return caches.match("pages/off.html");
+            }
           }
-          console.log(fetchedData);
-          return fetchedData;
+          
+          // Cache the requested page before returning (only successful responses)
+          const responseClone = response.clone();
+          const cache = await caches.open(cacheDB);
+          cache.put(e.request, responseClone);
+          
+          return response;
+
         } catch (err) {
-          console.log("your are offline");
-          return await caches.match("/pages/offline.html");
+          console.log("Network error:", err);
+          // Return offline page when network fails
+          return caches.match("pages/off.html");
         }
       })
       .catch((err) => {
-        console.log("Error", err);
+        console.log("Cache match error:", err);
+        // Return offline page for any cache errors
+        return caches.match("pages/off.html");
       })
   );
 });
+
