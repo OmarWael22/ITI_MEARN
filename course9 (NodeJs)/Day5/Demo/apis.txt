@@ -1,0 +1,23 @@
+app.get("/", (req, res) => {
+  res.send("hello at our api");
+});
+
+app.get("/api/users/", (req, res) => {
+  res.send("/api/users/ => get all user ");
+});
+
+app.get("/api/users/:id", (req, res) => {
+  res.send("/api/users/:id => get user by id");
+});
+
+app.post("/api/users/", (req, res) => {
+  res.send("/api/users/ => add user");
+});
+
+app.put("/api/users/:id", (req, res) => {
+  res.send("/api/users/:id => update user by id");
+});
+
+app.delete("/api/users/:id", (req, res) => {
+  res.send("/api/users/:id => delete user by id");
+});

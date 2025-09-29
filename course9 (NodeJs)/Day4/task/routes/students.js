@@ -1,8 +1,7 @@
 const express = require("express");
 const Student = require("../models/students");
-const Course = require("../models/courses");
-const Department = require("../models/department")
-
+const studentAjvSchema = require("../utils/studentSchema");
+const ajvValidation = require("../middlewares/ajvValidation")
 const router = express.Router();
 // get  api/students
 router.get("/", async (req, res) => {
@@ -32,14 +31,9 @@ router.get("/:id", async (req, res) => {
 // post api/student
 // body student obj
 // TODO: start from here
-router.post("/", async (req, res) => {
+router.post("/",ajvValidation(studentAjvSchema), async (req, res) => {
     let data = req.body
     console.log(data);
-    let targetCourses = await Course.find({ id : { $in : data.courses}})
-    let targetDep = await Department.findOne({id: data.depId})
-    // replace id with _id for each course and dep
-    data.courses = targetCourses.map((c)=> c._id)
-    data.depId = targetDep._id;
     let newStudent = new Student(data);
     await newStudent.save()
     res.json({msg:"success" , data})

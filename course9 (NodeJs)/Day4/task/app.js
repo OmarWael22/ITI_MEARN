@@ -18,7 +18,10 @@ app.use("/api/courses",courseRouter);
 // department route
 app.use("/api/departments",depRouter);
 app.use("/",(req,res)=>{
-    res.send("<h1>Not Found!</h1>")
+    res.status(404).json({
+        status: "Fail",
+        msg:"Not Found!"
+    })
 })
 
 module.exports = app;

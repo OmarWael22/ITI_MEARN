@@ -1,10 +1,12 @@
 const express = require("express")
 const router = express.Router()
 const Course = require("../models/courses")
+const courseAjvSchema = require("../utils/courseSchema");
+const ajvValidation = require("../middlewares/ajvValidation");
 // get api/courses
 router.get("/", async (req, res) => {
     try {
-        const courses  = await Course.find({})
+        const courses = await Course.find({}).populate("depId","name -_id");
         res.json({msg:"success",courses})
     } catch (err) {
         res.status(500).json({msg:"Error",error:err})
@@ -13,7 +15,7 @@ router.get("/", async (req, res) => {
 // get api/courses/1
 router.get("/:id", async (req, res) => {
     try {
-        const course = await Course.findOne({ id: parseInt(req.params.id) });
+        const course = await Course.findOne({ id: parseInt(req.params.id) }).populate("depId","name -_id");
         if(!course)
             res.status(404).json({ msg: "Not Found!" });
         res.json({msg:"success",course})
@@ -22,7 +24,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 // post
-router.post("/", async (req, res) => {
+router.post("/",ajvValidation(courseAjvSchema), async (req, res) => {
     try {
         let data = req.body;
         let course = new Course(data);

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Department = require("../models/department");
+const departmentAjvSchema = require("../utils/departmentSchema");
+const ajvValidation = require("../middlewares/ajvValidation");
 
 // get api/departments 
 router.get("/", async (req, res) => {
@@ -25,9 +27,10 @@ router.get("/:id", async (req, res) => {
         res.status(500).send(error)
     }
 })
-router.post("/", async (req, res) => {
+router.post("/",ajvValidation(departmentAjvSchema), async (req, res) => {
     try {
         let data = req.body
+        console.log(data);
         let newDep = new Department(data);
         await newDep.save();
         res.status(201).json({msg:"success", department:newDep})

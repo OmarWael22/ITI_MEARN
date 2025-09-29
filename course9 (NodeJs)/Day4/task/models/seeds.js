@@ -22,21 +22,21 @@ const Department = require("./department");
         id : 1,
         title: "Node.js",
         hours: 40,
-        depId: csDep.id,
+        depId: csDep._id,
         });
 
         const db = await Course.create({
         id : 2,
         title: "Database Systems",
         hours: 20,
-        depId: isDep.id,
+        depId: isDep._id,
         });
 
         const cpp = await Course.create({
         id : 3,
         title: "C++ OOP",
         hours: 70,
-        depId: csDep.id,
+        depId: csDep._id,
         });
 
         // Insert students
