@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #2196F3;
+            color: white;
+            padding: 20px;
+            margin: 0 0 20px 0;
+            border-radius: 10px;
+        }
+
+        .add-task {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .add-task h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 400px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="number"] {
+            width: 80px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #addBtn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .tasks-list {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-height: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tasks-list h2 {
+            color: #333;
+        }
+
+        .task {
+            background-color: #E3F2FD;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .task.done {
+            background-color: #FFEBEE;
+            border-left-color: #F44336;
+        }
+
+        .task.done .title {
+            text-decoration: line-through;
+            color: #F44336;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .time {
+            font-size: 14px;
+            color: #666;
+        }
+          .delete-btn {
+     
+      background-color: #f44336;
+      color: white;
+      border: none;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  .delete-btn:hover {
+      background-color: #d32f2f;
+  }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+        
+        <div class="add-task">
+            <h2>Add new to do.</h2>
+            
+            <div class="form-row">
+                <label>Task title:</label>
+                <input type="text" id="title">
+            </div>
+
+            <div class="form-row">
+                <label>Hours (hh):</label>
+                <input type="number" id="hours" min="0" max="23" value="0">
+                <label style="width:auto; margin-left:20px;">Mins (mm):</label>
+                <input type="number" id="mins" min="0" max="59" value="0">
+            </div>
+
+            <div class="form-row">
+                <label>Day:</label>
+                <select id="day"></select>
+                
+                <label style="width:auto; margin-left:20px;">Month:</label>
+                <select id="month">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select>
+                
+                <label style="width:auto; margin-left:20px;">Year:</label>
+                <select id="year"></select>
+            </div>
+
+            <button id="addBtn">Add Task</button>
+        </div>
+
+        <div class="tasks-list">
+            <h2>Your Tasks</h2>
+            <div id="tasksList"></div>
+        </div>
+    </div>
+
+    <script src="idb.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

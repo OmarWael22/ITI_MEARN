@@ -16,10 +16,10 @@ self.addEventListener("install", (e) => {
       .open(cacheDB)
       .then((db) => {
         console.log("Files added to cache successfully");
-        return db.addAll(filesToCache);
+        return db.addAll(cachedFiles);
       })
       .catch((err) => {
-        console.log("Error during caching:", error);
+        console.log("Error during caching:", err);
       })
   );
 });
