@@ -1,0 +1,8 @@
+1-> frontend market
+2-> frontend framework 
+3-> component based
+4-> SPA vs MPA (CRS , SSR)
+5-> angular history 
+------------------------
+6-> Zone.js vs Zoneless
+7-> explor Angular arch
