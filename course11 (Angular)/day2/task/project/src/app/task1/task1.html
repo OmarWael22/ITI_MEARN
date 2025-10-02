@@ -1,0 +1,23 @@
+<p>task1 works!</p>
+
+    <input #inputname type="text" placeholder="name" >
+    <input #inputmail type="email" placeholder="email">
+    <button  (click)="update(inputname,inputmail)">submit</button>
+
+<table>
+  <thead>
+    <tr>
+        <th>name</th>
+        <th>email</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{name}}</td>
+      <td>{{email}}</td>
+    </tr>
+  </tbody>
+
+
+</table>
+
