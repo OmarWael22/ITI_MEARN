@@ -1,1 +1,25 @@
-<p>display-products works!</p>
+<div>
+  <h4>Current Products</h4>
+  @for(product of currProductsArr ; track $index){
+    <div class="product-card">
+      <h5>{{product.name}}</h5>
+      <p>Price : {{product.price}}</p>
+      <p>Category : {{product.category}}</p>
+      <button (click)="sendFavProduct(product)">Favourite</button>
+      <button (click)="deleteProduct(product)">Delete</button>
+      <button (click)="enableUpdate(product)">Update</button>
+      @if(product.isEditing){
+        <form (ngSubmit)="sendUpdatedProduct(product)">
+          <label for="name">Name</label>
+          <input type="text" name="product-name" id="name"  [(ngModel)]="updatedProduct.name">
+          <label for="price">Price</label>
+          <input type="text" name="product-price" id="price"  [(ngModel)]="updatedProduct.price">
+          <label for="cat">Category</label>
+          <input type="text" name="product-cat" id="cat"  [(ngModel)]="updatedProduct.category">
+          <input type="submit" value="Submit Edits" >
+        </form>
+      }
+    </div>
+  }
+
+</div>

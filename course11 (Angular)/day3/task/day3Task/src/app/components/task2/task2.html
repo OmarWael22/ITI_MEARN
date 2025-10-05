@@ -1,3 +1,18 @@
-<h3>Task 2</h3>
-<app-add-product (addProductEvent)="recieveProduct($event)"></app-add-product>
-<app-display-products></app-display-products>
+<h3>Product Dashboard</h3>
+<div class="favourites">
+  <h4>Favourite Products</h4>
+  <ul>
+    @for (product of favProducts; track $index) {
+      <li>
+        {{product.name}}
+      </li>
+    }
+  </ul>
+</div>
+<div class="container">
+  <app-add-product (addProductEvent)="recieveProduct($event)"></app-add-product>
+  <app-display-products [currProductsArr]="productArr"
+    (favProductEvent)="recieveFavProduct($event)"
+    (deleteProductEvent)="deleteProduct($event)"
+    (updateProductEvent)="updateProduct($event)"></app-display-products>
+</div>

@@ -9,11 +9,47 @@ import { Product } from '../../types';
   styleUrl: './task2.css'
 })
 export class Task2 {
-  productArr : Product[] =[]
+  productArr: Product[] = []
   recieveProduct(product : Product){
     this.productArr.push(product);
-    this.productArr.forEach((prod)=>{
-      console.log(prod);
+    // this.productArr.forEach((prod)=>{
+    //   console.log(prod);
+    // })
+  }
+  favProducts: Product[] = [];
+  recieveFavProduct(product: Product) {
+    if (!this.favProducts.includes(product)) {
+      this.favProducts.push(product);
+
+    }
+    // this.favProducts.forEach((prod)=>{
+    //   console.log(prod);
+    // })
+  }
+  deleteProduct(product: Product) {
+    this.productArr = this.productArr.filter((currProduct) => {
+      return currProduct.name != product.name;
+    });
+    this.favProducts = this.favProducts.filter((currProduct) => {
+      return currProduct.name != product.name;
+    })
+  }
+  updateProduct(updateobj: { oldProduct: Product, newProduct: Product }) {
+    // update prodcut in prodcutArr
+    this.productArr = this.productArr.map((currProduct) => {
+      if (currProduct.name == updateobj.oldProduct.name) {
+        return updateobj.newProduct
+      }
+      else
+        return currProduct
+    })
+    // update product in favproducts
+    this.favProducts = this.favProducts.map((currProduct) => {
+      if (currProduct.name == updateobj.oldProduct.name) {
+        return updateobj.newProduct
+      }
+      else
+        return currProduct
     })
   }
 }
