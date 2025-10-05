@@ -1,0 +1,71 @@
+/* Overall container */
+div {
+  max-width: 320px;
+
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Heading */
+h4 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #3b82f6; /* blue highlight */
+}
+
+/* Button */
+button,
+input[type="submit"] {
+  width: 100%;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.25s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #2563eb;
+}
+
+/* Optional: subtle hover effect for inputs */
+input:hover {
+  border-color: #999;
+}
