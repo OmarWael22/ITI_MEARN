@@ -1,0 +1,67 @@
+/* Page heading */
+h3 {
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* Favourite section */
+.favourites{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div > h4 {
+  color: #444;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px;
+  width: 25%;
+}
+
+li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #333;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease;
+}
+
+li:hover {
+  background-color: #e9ecef;
+}
+
+/* Layout for child components */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Child components styling container */
+app-add-product,
+app-display-products {
+  flex: 1 1 45%;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+

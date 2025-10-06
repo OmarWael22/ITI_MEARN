@@ -1,0 +1,26 @@
+<div>
+  <h4>Current Products</h4>
+  @for(product of currProductsArr ; track $index){
+    <div class="product-card">
+      <img [src]="product.imageUrl" alt="{{product.name}}">
+      <h5>{{product.name}}</h5>
+      <p>{{product.description}}</p>
+      <p>Rate: {{product.rate}}⭐</p>
+      <button (click)="sendFavProduct(product)">Favourite</button>
+      <button (click)="deleteProduct(product)">Delete</button>
+      <button (click)="enableUpdate(product)">Update</button>
+      @if(product.isEditing){
+        <form (ngSubmit)="sendUpdatedProduct(product)">
+          <label for="name">Name</label>
+          <input type="text" name="product-name" id="name"  [(ngModel)]="updatedProduct.name">
+          <label for="description">description</label>
+          <input type="text" name="product-description" id="description"  [(ngModel)]="updatedProduct.description">
+          <label for="rate">rate</label>
+          <input type="text" name="product-rate" id="rate"  [(ngModel)]="updatedProduct.rate">
+          <input type="submit" value="Submit Edits" >
+        </form>
+      }
+    </div>
+  }
+
+</div>

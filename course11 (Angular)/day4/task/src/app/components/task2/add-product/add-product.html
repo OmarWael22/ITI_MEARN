@@ -1,0 +1,27 @@
+<div>
+  <h4>Add Product</h4>
+  <form [formGroup]="productForm" (ngSubmit)="sendProduct()">
+    <label for="name">Name</label>
+  <input id="name" type="text" formControlName="name" />
+  @if(productForm.get('name')?.invalid && ( productForm.get('name')?.dirty ||  productForm.get('name')?.touched)) {
+    <small class="error">Name is required and max 20 characters</small>
+  }
+  <label for="description">Description</label>
+  <input type="text" id="description" formControlName="description">
+  @if(productForm.get('description')?.invalid && ( productForm.get('description')?.dirty ||  productForm.get('description')?.touched)) {
+    <small class="error">Description is required (max 100 chars)</small>
+  }
+  <label for="imageUrl">Image URL</label>
+  <input id="imageUrl" type="text" formControlName="imageUrl" />
+  @if(productForm.get('imageUrl')?.invalid && ( productForm.get('imageUrl')?.dirty ||  productForm.get('imageUrl')?.touched)) {
+    <small class="error">Please enter a valid image URL</small>
+  }
+  <label for="description">Rate</label>
+  <input id="rate" type="number" formControlName="rate" />
+  @if( productForm.get('rate')?.invalid && ( productForm.get('rate')?.dirty ||  productForm.get('rate')?.touched)) {
+    <small class="error">Rate must be between 1 and 5</small>
+  }
+  <input type="submit" value="Add Product">
+
+  </form>
+

@@ -1,0 +1,31 @@
+<h3>Task 1</h3>
+
+<form>
+  <input type="text" name="inputCommand" placeholder="command" [(ngModel)]="commandTrack">
+
+  <input type="submit" value="Add Command" (click)="displayCommands()">
+</form>
+
+
+<div>
+  @for ( item of commandArr; track $index) {
+
+    @switch (item) {
+      @case('success'){
+        <p [class]="item">Success  Profile updated successfully</p>
+      }
+      @case('error'){
+        <p [class]="item">Error  Valid to load user data!</p>
+      }
+      @case('warning'){
+        <p [class]="item">Weak  Password is weak!</p>
+      }
+      @case('info'){
+        <p [class]="item">Info  New updates are available</p>
+      }
+      @default {
+        <p class="default">Invalid ==>  Enter :  success | Error | Warning | Info</p>
+      }
+    }
+  }
+</div>

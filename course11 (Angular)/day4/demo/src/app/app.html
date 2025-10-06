@@ -1,0 +1,11 @@
+<h1 class="mt-2">Parent Comp</h1>
+<app-from-comp (sendDataEvent)="reciveData($event)" />
+@if(hide){
+<app-table-comp [users]="user" />
+<!-- app-table-comp [users]="user" />  -->
+<button type="button" (click)="hideFun()" class="btn btn-danger mb-3">hide comp</button>
+}
+<!-- <app-table-comp>
+  <h1>{{ title }}</h1>
+  <button type="button" (click)="hideFun()" class="btn btn-danger mb-3">hide comp</button>
+</app-table-comp> -->
