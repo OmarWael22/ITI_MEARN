@@ -1,6 +1,6 @@
 <div>
   <h4>Current Products</h4>
-  @for(product of currProductsArr ; track $index){
+  @for(product of productsArr ; track $index){
     <div class="product-card">
       <img [src]="product.imageUrl" alt="{{product.name}}">
       <h5>{{product.name}}</h5>

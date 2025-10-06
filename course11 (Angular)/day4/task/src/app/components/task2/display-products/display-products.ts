@@ -9,14 +9,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class DisplayProducts implements OnChanges {
   @Input() addedProduct: Product = { name: '', description: '', imageUrl: '', rate: '' };
-  currProductsArr: Product[] = [];
+  productsArr: Product[] = [];
   @Output() favProductEvent = new EventEmitter<Product>();
   @Output() deleteProductEvent = new EventEmitter<Product>();
   @Output() updateProductEvent = new EventEmitter<{ oldProduct: Product, newProduct: Product }>();
   ngOnChanges(changes: SimpleChanges): void {
+    if(changes['addedProduct']?.firstChange) return
     if (changes['addedProduct'] && changes['addedProduct'].currentValue) {
+      console.log(changes);
       const newProduct = changes['addedProduct'].currentValue as Product;
-      this.currProductsArr.push(newProduct);
+      // console.log(newProduct);
+      this.productsArr.push(newProduct);
+      // console.log(this.currProductsArr);
     }
 
   }
@@ -24,6 +28,9 @@ export class DisplayProducts implements OnChanges {
     this.favProductEvent.emit(product)
   }
   deleteProduct(product: Product) {
+    this.productsArr = this.productsArr.filter((currProduct) => {
+      return currProduct.name != product.name;
+    });
     this.deleteProductEvent.emit(product);
   }
   updatedProduct: Product = { name: '', description: '', imageUrl: '', rate: '' };
@@ -38,10 +45,18 @@ export class DisplayProducts implements OnChanges {
       "oldProduct": product,
       "newProduct" : this.updatedProduct
     })
-    console.log({
-      "oldProduct": product,
-      "newProduct" : this.updatedProduct
-    });
+        // update prodcut in prodcutArr
+    this.productsArr = this.productsArr.map((currProduct) => {
+      if (currProduct.name == product.name) {
+        return this.updatedProduct
+      }
+      else
+        return currProduct
+    })
+    // console.log({
+    //   "oldProduct": product,
+    //   "newProduct" : this.updatedProduct
+    // });
     this.updatedProduct = { name: '', description: '', imageUrl: '', rate: ''};
   }
 }

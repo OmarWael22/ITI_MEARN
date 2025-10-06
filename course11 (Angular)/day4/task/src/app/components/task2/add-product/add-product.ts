@@ -27,11 +27,12 @@ export class AddProduct implements OnInit{
     });
   }
 
-  sendProduct(){
+  sendProduct() {
+    // console.log(this.productForm);
     if (this.productForm.valid) {
-      console.log(
-        this.productForm.value
-      );
+      // console.log(
+      //   this.productForm.value
+      // );
       this.addProductEvent.emit(this.productForm.value);
       this.productForm.reset();
     } else {
