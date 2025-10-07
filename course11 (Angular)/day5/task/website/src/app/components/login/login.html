@@ -1,0 +1,68 @@
+<div class="container mt-5 col-6">
+  <!-- If not logged in -->
+  @if (!loginFlag) {
+    <div class="card p-4 shadow-sm">
+      <h4 class="text-center mb-3">Login</h4>
+
+      <form [formGroup]="userForm" (ngSubmit)="Login()">
+        <!-- Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            AutoFocusDirective
+            id="name"
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Enter your name"
+          />
+          @if (userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)) {
+            <small class="text-danger">Name is required and max 20 characters</small>
+          }
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Enter your email"
+          />
+          @if (userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)) {
+            <small class="text-danger">Please enter a valid email address</small>
+          }
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Enter your password"
+          />
+          @if (userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)) {
+            <small class="text-danger">
+              Password must be between 5 and 25 characters
+            </small>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+    </div>
+  }
+  <!-- If logged in -->
+  @else {
+    <div class="card p-4 shadow-sm text-center">
+      <h4 class="mb-3">Welcome, {{ userForm.get('name')?.value }} 🎉</h4>
+      <p class="text-muted">You are successfully logged in.</p>
+      <button class="btn btn-danger" (click)="Logout()">Logout</button>
+    </div>
+  }
+</div>
