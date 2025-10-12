@@ -1,0 +1,9 @@
+.container{
+    margin : 50px;
+    display: flex;
+    flex-wrap : wrap;
+    gap : 20px;
+}
+h1{
+    text-align: center;
+}
