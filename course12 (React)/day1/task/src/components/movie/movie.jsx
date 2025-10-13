@@ -3,14 +3,13 @@ import "./Movie.css"
 class Movie  extends Component {
     render() { 
         console.log(this.props);
-
         return ( 
             <>
             <div className="movie-card">
-                <img src={this.props.imageSrc} alt="movie img" />
-                <h3>{this.props.name}</h3>
-                <p>{this.props.description}</p>
-                <p>{this.props.rating}</p>
+                <img src={`https://image.tmdb.org/t/p/w500/${this.props.backdrop_path}`} alt="movie img" />
+                <h3>{this.props.original_title}</h3>
+                <p>{this.props.overview}</p>
+                <p>{this.props.vote_average} / 10</p>
             </div>
             </>
         );

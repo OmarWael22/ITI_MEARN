@@ -1,48 +1,50 @@
 import { Component } from "react";
 import Movie from "../movie/movie";
 import "./movies.css"
+import Slider from "../slider/slider";
 class Movies extends Component {
     constructor() {
         super()
         this.state = {
-        movies: [
-            {
-            name: "Inception",
-            description: "A skilled thief enters dreams to steal secrets.",
-            imageSrc: "https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg",
-            rating: "⭐ 8.8/10"
-            },
-            {
-            name: "The Dark Knight",
-            description: "Batman faces the Joker in a battle for Gotham’s soul.",
-            imageSrc: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfE_qrYMBZ_JB8om-34WGaZARhpX26yWRttqIDvn4_7l--UzX8mxKcPrc59IcvTpEA_G8gPA",
-            rating: "⭐ 9.0/10"
-            },
-            {
-            name: "Interstellar",
-            description: "A group travels through a wormhole to find a new home for humanity.",
-            imageSrc: "https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SY679_.jpg",
-            rating: "⭐ 8.6/10"
-            },
-            {
-            name: "The Matrix",
-            description: "A hacker discovers the truth about his simulated reality.",
-            imageSrc: "https://m.media-amazon.com/images/I/51vpnbwFHrL._AC_.jpg",
-            rating: "⭐ 8.7/10"
-            }
-        ]
+        movies: []
 
         };
         console.log(this.state);
+
+    }
+    componentDidMount(){
+        fetch(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=9813ce01a72ca1bd2ae25f091898b1c7`)
+        .then((res)=> res.json())
+        .then((data)=> {
+            console.log(data.results);
+            this.setState({movies : data['results']});
+            console.log(this.state);
+        } )
+        
     }
     render() { 
+        if(this.state.movies.length == 0)
+            return <h3>Loading</h3>
         return ( 
             <>
             <h1>Movies</h1>
             <div className="container">
+
+            {/* Task1 */}
             {
-                this.state.movies.map((mov)=><Movie {...mov} ></Movie>)
+                this.state.movies.map((mov)=>{
+                    return <Movie {...mov} ></Movie>
+                })
             }
+
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div className="container">
+
+            {/* Task 2 */}
+            <Slider  movies = {this.state.movies }></Slider>
             </div>
             </>
         )
