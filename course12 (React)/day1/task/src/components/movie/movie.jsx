@@ -1,19 +1,19 @@
 import { Component } from "react";
 import "./Movie.css"
-class Movie  extends Component {
-    render() { 
-        console.log(this.props);
+function Movie (props) {
+    
         return ( 
             <>
             <div className="movie-card">
-                <img src={`https://image.tmdb.org/t/p/w500/${this.props.backdrop_path}`} alt="movie img" />
-                <h3>{this.props.original_title}</h3>
-                <p>{this.props.overview}</p>
-                <p>{this.props.vote_average} / 10</p>
+                <img src={`https://image.tmdb.org/t/p/w500/${props.backdrop_path}`} alt="movie img" />
+                <h3>{props.original_title}</h3>
+                <p>{props.overview}</p>
+                <p>{props.release_date} </p>
+                <p>{props.vote_average} / 10</p>
             </div>
             </>
         );
-    }
+    
 }
 
 export default Movie ;
