@@ -4,7 +4,7 @@ import {Task1} from './components/task1/task1'
 import {Task2} from './components/task2/task2'
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Task1, Task2],
+  imports: [ Task1, Task2],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
